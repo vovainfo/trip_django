@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+    <style>
+        main {
+            display: flex;
+            flex-wrap: nowrap;
+            height: 100vh;
+            height: -webkit-fill-available;
+            max-height: 100vh;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .b-example-divider {
+            flex-shrink: 0;
+            width: 0.5rem;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+    </style>
+
+</head>
+<body>
+<main>
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 15rem;">
+        <form action="/" method="post">
+            <div class="mb-3">
+                <label for="base_airport" class="form-label">Пункт отправления</label>
+                <input type="text" class="form-control" id="base_airport" name="base_airport" placeholder="UHWW">
+            </div>
+            <div class="mb-3">
+                <label for="minimum_departure_date" class="form-label">Вылет не ранее</label>
+                <input type="datetime-local" class="form-control" id="minimum_departure_date"
+                       name="minimum_departure_date">
+            </div>
+            <div class="mb-3">
+                <label for="maximum_return_date" class="form-label">Возвращение не позже</label>
+                <input type="datetime-local" class="form-control" id="maximum_return_date"
+                       name="maximum_return_date">
+            </div>
+            <div class="mb-3">
+                <label for="minimum_stay" class="form-label">Минимальное пребывание</label>
+                <input type="number" class="form-control" id="minimum_stay" name="minimum_stay" value="35">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Полетели</button>
+            </div>
+        </form>
+    </div>
+    <div class="b-example-divider"></div>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                    <strong>Хабаровск. Максимальное пребывание: 65 часов. Рейсов: 3/3</strong>
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                 data-bs-parent="#accordionExample">
+                <div class="accordion-body row gx-5">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-12 text-center"><strong>Вылет</strong></div>
+                        </div>
+                        <div class="row">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Отправление</th>
+                                    <th scope="col">Прибытие</th>
+                                    <th scope="col">Рейс</th>
+                                    <th scope="col">АК</th>
+                                    <th scope="col">Тип ВС</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>20.07.2021 8:40</td>
+                                    <td>20.07.2021 10:15</td>
+                                    <td>SU 1701</td>
+                                    <td>Aeroflot</td>
+                                    <td>Boeing 777-300ER</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>20.07.2021 8:40</td>
+                                    <td>20.07.2021 10:15</td>
+                                    <td>SU 1701</td>
+                                    <td>Aeroflot</td>
+                                    <td>Boeing 777-300ER</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-12 text-center"><strong>Возвращение</strong></div>
+                        </div>
+                        <div class="row">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Отправление</th>
+                                    <th scope="col">Прибытие</th>
+                                    <th scope="col">Рейс</th>
+                                    <th scope="col">АК</th>
+                                    <th scope="col">Тип ВС</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>20.07.2021 8:40</td>
+                                    <td>20.07.2021 10:15</td>
+                                    <td>SU 1701</td>
+                                    <td>Aeroflot</td>
+                                    <td>Boeing 777-300ER</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>20.07.2021 8:40</td>
+                                    <td>20.07.2021 10:15</td>
+                                    <td>SU 1701</td>
+                                    <td>Aeroflot</td>
+                                    <td>Boeing 777-300ER</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>20.07.2021 8:40</td>
+                                    <td>20.07.2021 10:15</td>
+                                    <td>SU 1701</td>
+                                    <td>Aeroflot</td>
+                                    <td>Boeing 777-300ER</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Москва. Максимальное пребывание: 45 часов. Рейсов: 2/3
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                 data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>Это тело аккордеона второго элемента.</strong> По умолчанию он скрыт, пока плагин
+                    свертывания не добавит соответствующие классы, которые мы используем для стилизации каждого
+                    элемента. Эти классы управляют общим внешним видом, а также отображением и скрытием с помощью
+                    переходов CSS. Вы можете изменить все это с помощью собственного CSS или переопределить наши
+                    переменные по умолчанию. Также стоит отметить, что практически любой HTML может быть помещен в
+                    <code>.accordion-body</code>, хотя переход ограничивает переполнение.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Иркутск. Максимальное пребывание: 40 часов. Рейсов: 2/1
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                 data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>Это тело аккордеона третьего элемента.</strong> По умолчанию оно скрыто, пока плагин
+                    свертывания не добавит соответствующие классы, которые мы используем для стилизации каждого
+                    элемента. Эти классы управляют общим внешним видом, а также отображением и скрытием с помощью
+                    переходов CSS. Вы можете изменить все это с помощью собственного CSS или переопределить наши
+                    переменные по умолчанию. Также стоит отметить, что практически любой HTML может быть помещен в
+                    <code>.accordion-body</code>, хотя переход ограничивает переполнение.
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
