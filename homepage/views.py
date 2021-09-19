@@ -18,10 +18,10 @@ def index(request):
         minimum_departure_date = request.POST['minimum_departure_date']
         maximum_return_date = request.POST['maximum_return_date']
         minimum_stay = request.POST['minimum_stay']
-        print(f'{base_airport=}')
-        print(f'{minimum_departure_date=}')
-        print(f'{maximum_return_date=}')
-        print(f'{minimum_stay=}')
+        # print(f'{base_airport=}')
+        # print(f'{minimum_departure_date=}')
+        # print(f'{maximum_return_date=}')
+        # print(f'{minimum_stay=}')
 
         json_res = get_route_list(base_airport, minimum_departure_date, maximum_return_date, minimum_stay)
         res_data = json.loads(json_res)
@@ -30,9 +30,9 @@ def index(request):
         result_flight = ""
 
         for idx_airport, one_airport in enumerate(res_data, 1):
-            print(one_airport)
-            print(one_airport.keys())
-            print(one_airport['airport'])
+            # print(one_airport)
+            # print(one_airport.keys())
+            # print(one_airport['airport'])
             airport_name = one_airport['airport']['name']
             flight_list_outbound_count = len(one_airport['flight_list_outbound'])
             flight_list_inbound_count = len(one_airport['flight_list_inbound'])
@@ -158,12 +158,5 @@ def index(request):
             'minimum_stay_value': f'value={minimum_stay}',
             'result_flight': result_flight
         }
-        print(head_str)
-
-
-
-
-    # print(context)
-    # print(request)
 
     return render(request, 'homepage/index.html', context)
