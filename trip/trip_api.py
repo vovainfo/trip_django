@@ -2,6 +2,7 @@ import datetime as dt
 import requests
 import json
 import os
+from dotenv import load_dotenv
 
 BASE_URL: str = 'https://aerodatabox.p.rapidapi.com/flights/airports/icao/'
 
@@ -25,7 +26,10 @@ def date_convert_json(o):
 
 
 def get_route_list(base_airport: str, minimum_departure_date: str, maximum_return_date: str, minimum_stay: str) -> str:
-    RAPID_KEY = os.environ.get('x-rapidapi-key')
+    load_dotenv('.env')
+
+    RAPID_KEY = os.environ.get('xrapidapikey')
+
     min_date = dt.datetime.strptime(minimum_departure_date, '%Y-%m-%dT%H:%M')
     max_date = dt.datetime.strptime(maximum_return_date, '%Y-%m-%dT%H:%M')
     min_stay = dt.timedelta(hours=int(minimum_stay))
