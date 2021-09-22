@@ -2,8 +2,11 @@ from django.shortcuts import render
 import datetime as dt
 from trip.trip_api import get_route_list
 from trip.trip_api import pretty_datetime
+import logging
 
 import json
+
+logger = logging.getLogger(__name__)
 
 
 def index(request):
@@ -15,10 +18,12 @@ def index(request):
         'minimum_stay_value': f'value=5'
     }
     if request.method == 'POST':
+
         base_airport = request.POST['base_airport']
         minimum_departure_date = request.POST['minimum_departure_date']
         maximum_return_date = request.POST['maximum_return_date']
         minimum_stay = request.POST['minimum_stay']
+        logger.info(f'{base_airport=} {minimum_departure_date=} {maximum_return_date=} {minimum_stay=}')
 
         min_date = dt.datetime.strptime(minimum_departure_date, '%Y-%m-%dT%H:%M')
         max_date = dt.datetime.strptime(maximum_return_date, '%Y-%m-%dT%H:%M')
@@ -27,7 +32,7 @@ def index(request):
             max_date = min_date + dt.timedelta(days=10)
             maximum_return_date = max_date.strftime('%Y-%m-%dT%H:%M')
 
-        print(delta_date)
+        # print(delta_date)
 
         # print(f'{base_airport=}')
         # print(f'{minimum_departure_date=}')
